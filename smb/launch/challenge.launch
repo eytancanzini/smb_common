@@ -4,14 +4,28 @@
   <include file="$(find smb)/launch/smb.launch">
 
   <!-- Launch Localisation -->
-  <include file="$(find smb)/launch/smb.launch">
+  <include file="$(find smb_slam)/launch/localization.launch">
+    <arg name="map_name" value="slam_1.pcd" />
+    <arg name="pcd_filepath" value="/home/team8/data/maps/" />
+    <!-- TODO: Check lidar odometry -->
+  </include>
 
   <!-- Launch navigation -->
-  <include file="$(find smb_navigation)/launch/object_detection.launch">
+  <include file="$(find smb_navigation)/launch/navigate2d_ompl.launch">
+    <arg name="global_frame" value="map" />
+    <arg name="follow_waypoints" value="true" />
+    <arg name="use_global_map" value="true" />
+    <arg name="odom_topic" value="/base_odom" />
+    <arg name="global_map" value="/home/team8/data/maps/occupancy_1.yaml" />
+    <arg name="input_filename" value="/home/team8/data/mission/waypoints.csv" />
+  </include>
 
   <!-- Launch object detection -->
   <include file="$(find object_detection)/launch/object_detection.launch">
+    <arg name="" value="" />
+  </include>
 
  
 
 </launch>
+
