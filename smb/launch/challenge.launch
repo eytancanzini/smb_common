@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <!-- Launch Core -->
+  <include file="$(find smb)/launch/smb.launch">
+
+  <!-- Launch Localisation -->
+  <include file="$(find smb)/launch/smb.launch">
+
+  <!-- Launch navigation -->
+  <include file="$(find smb_navigation)/launch/object_detection.launch">
+
+  <!-- Launch object detection -->
+  <include file="$(find object_detection)/launch/object_detection.launch">
+
+ 
+
+</launch>
